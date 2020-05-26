@@ -10,4 +10,7 @@ public class Borrower {
         return this.collection.size();
     }
 
+    public void addBookToCollection(Book book) {
+        this.collection.add(book);
+    }
 }

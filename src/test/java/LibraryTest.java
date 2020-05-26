@@ -12,6 +12,7 @@ public class LibraryTest {
     private Book book6;
     private Library library1;
     private Library library2;
+    private Borrower borrower;
 
     @Before
     public void setUp(){
@@ -23,6 +24,7 @@ public class LibraryTest {
         book6 = new Book("A bried history of time", "Stephen Hawking", "science");
         library1 = new Library(1);
         library2 = new Library(200);
+        borrower = new Borrower();
     }
     @Test
     public void canCountHowManyBookAreInTheLibraryStock(){
@@ -52,6 +54,13 @@ public class LibraryTest {
         library2.addBookToStock(book1);
         library2.addBookToStock(book2);
         library2.removeBookFromStock(book1);
+        assertEquals(1, library2.countStock());
+    }
+    @Test
+    public void canBorrowABook(){
+        library2.addBookToStock(book1);
+        library2.addBookToStock(book2);
+        library2.borrowTo(book1, borrower);
         assertEquals(1, library2.countStock());
     }
 }

@@ -22,8 +22,15 @@ public class Library {
         }
     }
 
-    public void removeBookFromStock(Book nameOfTheBook) {
-        this.stock.remove(0);
+    public void removeBookFromStock(Book book) {
+        int index = this.stock.indexOf(book);
+         this.stock.remove(index);
     }
 
+
+    public void borrowTo(Book book, Borrower borrower) {
+        borrower.addBookToCollection(book);
+        this.removeBookFromStock(book);
+
+    }
 }

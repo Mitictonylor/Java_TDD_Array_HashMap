@@ -12,7 +12,7 @@ public class BorrowerTest {
     private Book book5;
     private Book book6;
     private Library library;
-    private Borrower giorgio;
+    private Borrower borrower;
 
     @Before
     public void setUp(){
@@ -23,18 +23,19 @@ public class BorrowerTest {
         book5 = new Book("Twelve Years a Slave", "Solomon Northup", "romance");
         book6 = new Book("A bried history of time", "Stephen Hawking", "science");
         library = new Library(100);
-        giorgio = new Borrower();
+        borrower = new Borrower();
     }
 
     @Test
     public void howManyBookInTheCollection(){
-        assertEquals(0, giorgio.countBookInCollection());
+        assertEquals(0, borrower.countBookInCollection());
     }
-//    @Test
-//    public void addBookToCollection(){
-//
-//        assertEquals();
-//    }
+    @Test
+    public void canAddBookToCollection(){
+        library.addBookToStock(book1);
+        library.borrowTo(book1, borrower);
+        assertEquals(1, borrower.countBookInCollection());
+    }
 
 
 
