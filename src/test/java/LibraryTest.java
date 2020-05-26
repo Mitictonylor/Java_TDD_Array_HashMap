@@ -39,12 +39,12 @@ public class LibraryTest {
     public void checkIfThereIsEnoughSpaceInTheLibraryStock_noSpace(){
         library1.addBookToStock(book1);
         library1.addBookToStock(book2);
-        assertEquals(false, library1.checkSpaceInStock());
+        assertEquals(1, library1.countStock());
     }
     @Test
     public void checkIfThereIsEnoughSpaceInTheLibraryStock_SpaceAvailable(){
-        library1.addBookToStock(book1);
-        library1.addBookToStock(book2);
-        assertEquals(true, library2.checkSpaceInStock());
+        library2.addBookToStock(book1);
+        library2.addBookToStock(book2);
+        assertEquals(2, library2.countStock());
     }
 }
