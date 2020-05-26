@@ -22,4 +22,8 @@ public class Library {
         }
     }
 
+    public void removeBookFromStock(Book nameOfTheBook) {
+        this.stock.remove(0);
+    }
+
 }

@@ -6,5 +6,8 @@ public class Borrower {
     public Borrower(){
         this.collection = new ArrayList<Book>();
     }
+    public int countBookInCollection() {
+        return this.collection.size();
+    }
 
 }

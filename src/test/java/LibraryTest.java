@@ -47,4 +47,11 @@ public class LibraryTest {
         library2.addBookToStock(book2);
         assertEquals(2, library2.countStock());
     }
+    @Test
+    public void removeBookFromStock(){
+        library2.addBookToStock(book1);
+        library2.addBookToStock(book2);
+        library2.removeBookFromStock(book1);
+        assertEquals(1, library2.countStock());
+    }
 }
