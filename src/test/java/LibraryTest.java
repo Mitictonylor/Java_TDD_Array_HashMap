@@ -21,7 +21,7 @@ public class LibraryTest {
         book4 = new Book("Flour Salt Yeast", "Ken Forkish", "food");
         book5 = new Book("Twelve Years a Slave", "Solomon Northup", "romance");
         book6 = new Book("A bried history of time", "Stephen Hawking", "science");
-        library1 = new Library(3);
+        library1 = new Library(1);
         library2 = new Library(200);
     }
     @Test
@@ -34,5 +34,17 @@ public class LibraryTest {
         library2.addBookToStock(book2);
         assertEquals(1, library1.countStock());
         assertEquals(1, library2.countStock());
+    }
+    @Test
+    public void checkIfThereIsEnoughSpaceInTheLibraryStock_noSpace(){
+        library1.addBookToStock(book1);
+        library1.addBookToStock(book2);
+        assertEquals(false, library1.checkSpaceInStock());
+    }
+    @Test
+    public void checkIfThereIsEnoughSpaceInTheLibraryStock_SpaceAvailable(){
+        library1.addBookToStock(book1);
+        library1.addBookToStock(book2);
+        assertEquals(true, library2.checkSpaceInStock());
     }
 }

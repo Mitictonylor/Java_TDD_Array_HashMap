@@ -19,4 +19,12 @@ public class Library {
     public void addBookToStock(Book bookName) {
         this.stock.add(bookName);
     }
+
+    public boolean checkSpaceInStock() {
+        if (this.capacity >= this.countStock()){
+            return true;
+            }else{
+            return false;
+        }
+    }
 }
