@@ -6,11 +6,13 @@ public class Library {
 
     private int capacity;
     private ArrayList<Book> stock;
+    private HashMap<String, Integer> genreHashMap;
 
 
     public Library(int capacity) {
         this.capacity = capacity;
         this.stock = new ArrayList<Book>();
+        this.genreHashMap = new HashMap<String, Integer>();
     }
 
 
@@ -21,6 +23,7 @@ public class Library {
     public void addBookToStock(Book bookName) {
         if (this.countStock() < this.capacity) {
             this.stock.add(bookName);
+            this.addToGnereHashMap(bookName);
         }
     }
 
@@ -35,16 +38,21 @@ public class Library {
         this.removeBookFromStock(book);
 
     }
+//if the genre already exist in the hashmap extract
+// the existing count and assign it to the variable counter
+    public void addToGnereHashMap(Book book){
+        String genre = book.getGenre();
 
-    public ArrayList<String> getAllTheGenres() {
-        ArrayList<String> genres = new ArrayList<String>();
-        for (Book book : this.stock) {
-            if (!genres.contains(book.getGenre())) {
-                genres.add(book.getGenre());
-            }
+        if(this.genreHashMap.containsKey(genre)){
+            int counter = this.genreHashMap.get(genre);
+            counter ++;
+            this.genreHashMap.put(genre, counter);
+        }else{
+            this.genreHashMap.put(genre, 1);
         }
-        return genres;
     }
+
+
 }
 
 
